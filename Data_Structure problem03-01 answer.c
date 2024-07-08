@@ -3,17 +3,17 @@
 
 int main()
 {
-	//ArrayListÀÇ »ı¼º ¹× ÃÊ±âÈ­///////
+	//ArrayListì˜ ìƒì„± ë° ì´ˆê¸°í™”///////
 	List list;
 	int data, i;
 	int sum = 0;
 	ListInit(&list);
 
-	//Á¤¼ö 1ºÎÅÍ 9±îÁö ÀúÀå///////
+	//ì •ìˆ˜ 1ë¶€í„° 9ê¹Œì§€ ì €ì¥///////
 	for (int i = 0; i < 10; i++)
 		Linsert(&list, i);
 
-	//ÇÕÀÇ °è»ê ¹× Ãâ·Â
+	//í•©ì˜ ê³„ì‚° ë° ì¶œë ¥
 	if (LFirst(&list, &data))
 	{
 		sum += data;
@@ -23,7 +23,7 @@ int main()
 	}
 	printf("SUM = %d \n\n", sum);
 
-	//2ÀÇ ¹è¼ö¿Í 3ÀÇ ¹è¼ö »èÁ¦///////
+	//2ì˜ ë°°ìˆ˜ì™€ 3ì˜ ë°°ìˆ˜ ì‚­ì œ///////
 	if (LFirst(&list, &data))
 	{
 		if (data % 2 == 0 || data % 3 == 0)
@@ -35,7 +35,7 @@ int main()
 		}
 	}
 
-	//»èÁ¦ ÈÄ ÀúÀåµÈ µ¥ÀÌÅÍ ÀüÃ¼ Ãâ·Â///////
+	//ì‚­ì œ í›„ ì €ì¥ëœ ë°ì´í„° ì „ì²´ ì¶œë ¥///////
 	if (LFirst(&list, &data))
 	{
 		printf("%d ", data);
