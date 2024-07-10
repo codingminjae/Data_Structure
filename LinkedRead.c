@@ -3,8 +3,8 @@
 
 typedef struct _node
 {
-	int data;
-	struct _node* next;
+	int data;            //데이터를 담을 공간
+	struct _node* next;  // 연결의 도구!
 } Node;
 
 int main()
@@ -29,12 +29,12 @@ int main()
 		newNode->data = readData;
 		newNode->next = NULL;
 
-		if (head == NULL)
-			head = newNode;
-		else
-			tail->next = newNode;
+		if (head == NULL)           //첫 번째 노드라면
+			head = newNode;         //첫 번째 노드를 head가 가리키게 함
+		else                        //두 번째 이후의 노드라면
+			tail->next = newNode;   //추가된 노드는 연결 리스트의 끝(tail이 가리키는 노드)의 뒤에 연결
 
-		tail = newNode;
+		tail = newNode;             //노드의 끝을 tail이 가리키게 함
 	}
 	printf("\n");
 
@@ -46,13 +46,13 @@ int main()
 	}
 	else
 	{
-		cur = head;
+		cur = head;                //cur이 리스트의 첫 번째 노드를 가리킨다
 		printf("%d ", cur->data);  //첫 번째 데이터 출력
 
-		while (cur->next != NULL)  //두 번째 이후의 데이터 출력
+		while (cur->next != NULL)  //cur이 연결 리스트의 끝이 아니라면 -> 반복
 		{
-			cur = cur->next;
-			printf("%d ", cur->data);
+			cur = cur->next;       //cur이 다음 노드를 가리키게 한다
+			printf("%d ", cur->data); //cur이 가리키는 노드들 출력한다
 		}
 	}
 	printf("\n\n");
@@ -64,16 +64,17 @@ int main()
 	}
 	else
 	{
-		Node* delNode = head;
-		Node* delNextNode = head->next;
+		                                   //head가 가리키는 노드의 삭제를 위해 두 개의 포인터 변수 추가로 선언
+		Node* delNode = head;              //삭제될 노드를 가리킴
+		Node* delNextNode = head->next;    //삭제될 노드의 다음 노드를 가리킴
 
 		printf("%d을(를) 삭제합니다. \n", head->data);
-		free(delNextNode);  //첫 번째 노드 삭제
+		free(delNode);  //첫 번째 노드 삭제
 
-		while (delNextNode != NULL)  //두 번쨰 이후 노드 삭제
+		while (delNextNode != NULL)  //두 번째 이후 노드 삭제를 위한 반복문
 		{
-			delNode = delNextNode;
-			delNextNode = delNextNode->next;
+			delNode = delNextNode;                  //delNode 한 칸 이동(원래 delNode가 가리키던 대상은 삭제됨)
+			delNextNode = delNextNode->next;        //delNextNode 한 칸 이동
 
 			printf("%d을(를) 삭제합니다. \n", delNode->data);
 			free(delNode);
